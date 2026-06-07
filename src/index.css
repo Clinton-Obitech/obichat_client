@@ -1,0 +1,71 @@
+@import "tailwindcss/theme";
+@import "tailwindcss/utilities";
+
+:root {
+  --bgColor: whitesmoke;
+  --bgText: rgba(0, 0, 0, 0.9);
+  --border: 2px solid black;
+  --cbgColor: rgba(0, 0, 0, 0.7);
+  --cbgText: whitesmoke;
+}
+
+[app-mode="dark"] {
+  --bgColor: rgba(0, 0, 0, 0.9);
+  --bgText: whitesmoke;
+  --border: 2px solid whitesmoke;
+  --cbgColor: rgba(225, 225, 225, 0.7);
+  --cbgText: rgba(0, 0, 0, 0.9);
+}
+
+body {
+  background-color: var(--bgColor);
+  color: var(--bgText);
+}
+
+* {
+  font-family: sans-serif;
+  font-weight: lighter;
+  padding: 0;
+  margin: 0;
+}
+
+h1, h2 {
+  text-transform: capitalize;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 4;
+}
+
+a {
+  text-decoration: none;
+  text-transform: capitalize;
+  border: 2px solid royalblue;
+  border-radius: 20px;
+  color: var(--bgText);
+}
+
+button {
+  border: none;
+  text-transform: capitalize;
+  background-color: royalblue;
+  border-radius: 30px;
+  padding: 0.5rem 1.5rem;
+}
+
+input {
+  border: none;
+  background-color: var(--cbgColor);
+  color: var(--cbgText);
+}
+
+main {
+  padding: 1rem;
+}

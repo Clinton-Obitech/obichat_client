@@ -1,0 +1,7 @@
+.AuthLayout {
+    background-image: url("../assets/obitechTransLogo.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
