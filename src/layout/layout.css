@@ -5,3 +5,10 @@
     background-repeat: no-repeat;
     height: 100vh;
 }
+
+.ChatLayout {
+    background-image: url("../../assets/obitechTransLogo.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}

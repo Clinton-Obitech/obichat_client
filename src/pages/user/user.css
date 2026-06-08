@@ -77,10 +77,6 @@ main.User .friend > div {
 
 main.Chat {
     padding: 0;
-    background-image: url("../../assets/obitechTransLogo.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
 }
 
 main.Chat .top h2 {
