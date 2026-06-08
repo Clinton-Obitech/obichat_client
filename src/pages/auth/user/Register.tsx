@@ -3,7 +3,7 @@ import React, { useContext, useState } from "react"
 import { ErrorModalContext, SuccessRedirectModalContext } from "../../../context/ModalContext";
 import api from "../../../api/axios";
 import { useNavigate } from "react-router-dom";
-import { UserContext } from "../../../context/UserContext";
+import { UserContext, UsersContext } from "../../../context/UserContext";
 import { LoggedContext } from "../../../context/LoggedContext";
 import { ButtonLoader } from "../../../ui/Loader";
 
@@ -28,6 +28,10 @@ export default function RegisterUser() {
     const userContext = useContext(UserContext);
     if (!userContext) return null;
     const { setUser } = userContext;
+
+    const usersContext = useContext(UsersContext);
+    if (!usersContext) return null;
+    const { setUsers } = usersContext;
     
     const loggedContext = useContext(LoggedContext);
     if (!loggedContext) return null;
@@ -59,6 +63,7 @@ export default function RegisterUser() {
 
             JSON.stringify(localStorage.setItem("logged", "true"));
             localStorage.setItem("user", JSON.stringify(data.user));
+            localStorage.setItem("users", JSON.stringify(data.users));
 
             setLogged(() => {
                 return JSON.parse(localStorage.getItem("logged") || "false")
@@ -67,6 +72,12 @@ export default function RegisterUser() {
 
             setUser(() => {
                 const stored = localStorage.getItem("user");
+                return stored ? JSON.parse(stored) : null;
+                }
+            )
+
+            setUsers(() => {
+                const stored = localStorage.getItem("users");
                 return stored ? JSON.parse(stored) : null;
                 }
             )
