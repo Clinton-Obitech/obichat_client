@@ -31,22 +31,24 @@ export default function SearchUser() {
     }
 
     return (
-        <main>
-            <div>
+        <main className="Search">
+            <h1>find a friend</h1>
+            
                 <input
                 type="text"
                 value={search}
                 placeholder="enter username..."
                 onChange={(e) => setSearch(e.target.value)}
-            />
-            </div>
+                />
+            
 
             {searchedUser ? (
-                <div onClick={() => HandleSelectedUser(searchedUser.id, searchedUser.username)}>
-                    {searchedUser?.username}
+                <div className="user" onClick={() => HandleSelectedUser(searchedUser.id, searchedUser.username)}>
+                    <div>{searchedUser.username.slice(0,1).toUpperCase()}</div>
+                    <h3>{searchedUser?.username}</h3>
                 </div>
             ) : (
-                <div>user not found</div>
+                <div className="notFound">no user found</div>
             )}
         </main>
     )

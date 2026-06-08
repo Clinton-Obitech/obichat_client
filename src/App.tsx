@@ -7,6 +7,7 @@ import LoginUser from "./pages/auth/user/Login";
 import RegisterUser from "./pages/auth/user/Register";
 import { AuthLayout, ChatLayout, PublicLayout, UserLayout } from "./layout/Layout";
 import { ConfirmModal, ErrorModal, ErrorRedirectModal, SuccessModal, SuccessRedirectModal } from "./ui/Modal";
+import SearchUser from "./pages/user/Search";
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
 
       <Route element={<UserLayout />}>
         <Route path="/users" element={<Users />} />
+        <Route path="/search/user" element={<SearchUser />} />
       </Route>
 
       <Route element={<ChatLayout />}>

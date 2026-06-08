@@ -22,12 +22,9 @@ export const UsersContext = createContext<UsersContextType | null>(null)
 
 export function UsersProvider({children}: ChildrenNode) {
 
-    const [users, setUsers] = useState<UsersType[]>(() => {
-        const stored = localStorage.getItem("users")
-        return stored ? JSON.parse(stored) : [];
-    })
+    const [users, setUsers] = useState<UsersType[]>([])
 
-    /*useEffect(() => {
+    useEffect(() => {
         const getUsers = async () => {
             try {
                 const { data } = await api.get("/api/users")
@@ -38,7 +35,7 @@ export function UsersProvider({children}: ChildrenNode) {
             }
         }
         getUsers();
-    }, [])*/
+    }, [])
 
     return (
         <UsersContext.Provider value={{users, setUsers}}>
@@ -67,7 +64,7 @@ export function SearchUserProvider({children}: ChildrenNode) {
             }
         }
         getSearchUser();
-    }, [])
+    }, [search])
 
     return (
         <SearchUserContext.Provider value={{search, searchedUser, setSearch, setSearchedUser, }}>

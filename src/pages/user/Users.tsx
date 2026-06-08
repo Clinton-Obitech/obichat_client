@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { LogoutUser } from "../../ui/Logout";
 import { useContext } from "react";
 import "./user.css";
@@ -63,10 +63,15 @@ export default function Users() {
                 </div>
             </div>
         ) : (
-            <div>
+            <div style={{
+                textAlign: "center",
+                textTransform: "capitalize"
+            }}>
                 no user available
             </div>
         )}
+
+        <Link to="/search/user"><i className="bi bi-person-add"></i></Link>
         </main>
     )
 } 

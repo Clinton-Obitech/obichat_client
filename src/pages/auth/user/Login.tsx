@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import api from "../../../api/axios";
 import axios from "axios";
 import { LoggedContext } from "../../../context/LoggedContext";
-import { UserContext, UsersContext } from "../../../context/UserContext";
+import { UserContext } from "../../../context/UserContext";
 import { ButtonLoader } from "../../../ui/Loader";
 
 export default function LoginUser() {
@@ -27,10 +27,6 @@ export default function LoginUser() {
     const userContext = useContext(UserContext);
     if (!userContext) return null;
     const { setUser } = userContext;
-
-    const usersContext = useContext(UsersContext);
-    if (!usersContext) return null;
-    const { setUsers } = usersContext;
 
     const loggedContext = useContext(LoggedContext);
     if (!loggedContext) return null;
@@ -62,7 +58,6 @@ export default function LoginUser() {
 
             JSON.stringify(localStorage.setItem("logged", "true"));
             localStorage.setItem("user", JSON.stringify(data.user));
-            localStorage.setItem("users", JSON.stringify(data.users))
 
             setLogged(() => {
                 return JSON.parse(localStorage.getItem("logged") || "false")
@@ -71,12 +66,6 @@ export default function LoginUser() {
 
             setUser(() => {
                 const stored = localStorage.getItem("user");
-                return stored ? JSON.parse(stored) : null;
-                }
-            )
-
-            setUsers(() => {
-                const stored = localStorage.getItem("users");
                 return stored ? JSON.parse(stored) : null;
                 }
             )

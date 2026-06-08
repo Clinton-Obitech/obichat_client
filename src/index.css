@@ -64,6 +64,8 @@ input {
   border: none;
   background-color: var(--cbgColor);
   color: var(--cbgText);
+  padding: 0.7rem;
+  font-size: 1rem;
 }
 
 main {
