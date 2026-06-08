@@ -4,7 +4,7 @@ import './index.css'
 import App from './App.tsx'
 import { BrowserRouter } from 'react-router-dom'
 import { ConfirmModalProvider, ErrorModalProvider, ErrorRedirectModalProvider, SuccessModalProvider, SuccessRedirectModalProvider } from './context/ModalContext.tsx'
-import { SelectUserProvider, UserProvider, UsersProvider } from './context/UserContext.tsx'
+import { SearchUserProvider, SelectUserProvider, UserProvider, UsersProvider } from './context/UserContext.tsx'
 import { LoggedProvider } from './context/LoggedContext.tsx'
 
 createRoot(document.getElementById('root')!).render(
@@ -13,6 +13,7 @@ createRoot(document.getElementById('root')!).render(
     <LoggedProvider>
     <UserProvider>
       <UsersProvider>
+        <SearchUserProvider>
         <SelectUserProvider>
           <SuccessRedirectModalProvider>
       <ErrorRedirectModalProvider>
@@ -26,6 +27,7 @@ createRoot(document.getElementById('root')!).render(
       </ErrorRedirectModalProvider>
     </SuccessRedirectModalProvider>
         </SelectUserProvider>
+        </SearchUserProvider>
       </UsersProvider>
     </UserProvider>
     </LoggedProvider>

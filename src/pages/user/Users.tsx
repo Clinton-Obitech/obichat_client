@@ -28,7 +28,6 @@ export default function Users() {
             id: id,
             username: username,
         }
-
         localStorage.setItem("selectedUser", JSON.stringify(selectedUser));
 
         const stored = localStorage.getItem("selectedUser");
@@ -38,6 +37,7 @@ export default function Users() {
             })
 
         navigate("/chats")
+        
     }
 
     return (
@@ -53,11 +53,11 @@ export default function Users() {
                 <h2>my friends</h2>
                 <div className="users">
                 {otherUsers.map(user => (
-                    <div className="friend" key={user.id}
-                    onClick={() => HandleSelectedUser(user.id, user.username)}
+                    <div className="friend" key={user.receiver_id}
+                    onClick={() => HandleSelectedUser(user.receiver_id, user.receiver_username)}
                     >
-                        <div>{user.username.slice(0,1).toUpperCase()}</div>
-                        <h3>{user.username}</h3>
+                        <div>{user?.receiver_username.slice(0,1).toUpperCase()}</div>
+                        <h3>{user.receiver_username}</h3>
                     </div>
                 ))}
                 </div>

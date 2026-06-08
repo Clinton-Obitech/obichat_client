@@ -40,13 +40,13 @@ export type UserContextType = {
 }
 
 export type UsersType = {
-    id: string;
-    username: string;
+    receiver_id: string;
+    receiver_username: string;
 }
 
 export type UsersContextType = {
-    users: UserType[];
-    setUsers: React.Dispatch<React.SetStateAction<UserType[]>>
+    users: UserTypes[];
+    setUsers: React.Dispatch<React.SetStateAction<UserTypes[]>>
 }
 
 export type SelectUserType = {
@@ -57,6 +57,18 @@ export type SelectUserType = {
 export type SelectUserContextType = {
     selectedUser: SelectUserType | null;
     setSelectedUser: React.Dispatch<React.SetStateAction<SelectUserType | null>>
+}
+
+type SearchUserType = {
+    id: string;
+    username: string;
+}
+
+export type SearchUserContextType = {
+    search: string;
+    setSearch: React.Dispatch<React.SetStateAction<string>>
+    searchedUser: SearchUserType | null;
+    setSearchedUser: React.Dispatch<React.SetStateAction<SearchUserType | null>>
 }
 
 export type LoggedContextType = {

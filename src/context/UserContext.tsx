@@ -1,5 +1,6 @@
-import { createContext, useState } from "react";
-import type { ChildrenNode, SelectUserContextType, SelectUserType, UserContextType, UsersContextType, UsersType, UserType } from "../types/context";
+import { createContext, useEffect, useState } from "react";
+import type { ChildrenNode, SearchUserContextType, SearchUserType, SelectUserContextType, SelectUserType, UserContextType, UsersContextType, UsersType, UserType } from "../types/context";
+import api from "../api/axios";
 
 export const UserContext = createContext<UserContextType | null>(null)
 
@@ -43,6 +44,35 @@ export function UsersProvider({children}: ChildrenNode) {
         <UsersContext.Provider value={{users, setUsers}}>
             {children}
         </UsersContext.Provider>
+    )
+}
+
+export const SearchUserContext = createContext<SearchUserContextType | null>(null)
+
+export function SearchUserProvider({children}: ChildrenNode) {
+
+    const [search, setSearch] = useState<string>("")
+    const [searchedUser, setSearchedUser] = useState<SearchUserType | null>(null)
+
+    useEffect(() => {
+        if (!search) return;
+        const getSearchUser = async () => {
+            try {
+                const { data } = await api.get(`/api/search/user/${search}`)
+
+                setSearchedUser(data)
+                
+            } catch (err) {
+                console.error(err)
+            }
+        }
+        getSearchUser();
+    }, [])
+
+    return (
+        <SearchUserContext.Provider value={{search, searchedUser, setSearch, setSearchedUser, }}>
+            {children}
+        </SearchUserContext.Provider>
     )
 }
 

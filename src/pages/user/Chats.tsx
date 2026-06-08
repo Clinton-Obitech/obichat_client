@@ -5,7 +5,6 @@ import api from "../../api/axios";
 import "./user.css";
 import { AppMode } from "../../ui/Mode";
 import { Loader } from "../../ui/Loader";
-import { ErrorModalContext } from "../../context/ModalContext";
 
 interface Messages {
     senderId: string;
@@ -24,17 +23,13 @@ export default function Chat() {
     if (!selectedContext) return null;
     const { selectedUser } = selectedContext;
 
-    const errorContext = useContext(ErrorModalContext);
-        if (!errorContext) return null;
-        const { setShowErrorModal, setErrorMessage } = errorContext;
-
     const userContext = useContext(UserContext)
         if (!userContext) return null;
         const { user } = userContext;
 
     const sendMessage = () => {
         if (!message) return;
-        socket.emit("private_message", {recieverId: selectedUser?.id, message})
+        socket.emit("private_message", {recieverId: selectedUser?.id, username: selectedUser?.username, message})
         setMessage("")
     }
 
@@ -55,13 +50,8 @@ export default function Chat() {
     }, [selectedUser])
 
     useEffect(() => {
-        socket.on("receive_message", (data, msgError) => {
+        socket.on("receive_message", (data) => {
             setMessages(prev => [...prev, data])
-
-            if (msgError) {
-                setShowErrorModal(true)
-                setErrorMessage(msgError)
-            }
         })
 
         return () => {
