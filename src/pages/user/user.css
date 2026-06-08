@@ -36,6 +36,10 @@ main.User .users {
     gap: 1rem;
 }
 
+main.User .users h3 {
+    text-transform: capitalize;
+}
+
 main.User .friend {
     display: flex;
     align-items: center;
