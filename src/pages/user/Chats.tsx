@@ -70,7 +70,7 @@ export default function Chat() {
             <div>
                 <div>
                 <i onClick={goBack} className="bi bi-chevron-left"></i>
-                <h1>chat with {selectedUser?.username}</h1>
+                <h2>{selectedUser?.username}</h2>
                 </div>
                 <AppMode />
             </div>

@@ -79,6 +79,10 @@ main.Chat {
     padding: 0;
 }
 
+main.Chat .top h2 {
+    text-transform: capitalize;
+}
+
 main.Chat .sendMessage {
     position: fixed;
     bottom: 0;
