@@ -4,13 +4,13 @@ main.Home {
     align-items: center;
     justify-content: center;
     padding: 2rem;
-    gap: 1rem;
+    gap: 2rem;
 }
 
 main.Home > img {
     background-color: whitesmoke;
     border-radius: 50%;
-    width: 80%;
+    width: 100%;
 }
 
 main.Home > nav {
