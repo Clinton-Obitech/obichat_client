@@ -88,6 +88,7 @@ main.Chat .sendMessage {
     bottom: 0;
     width: 100%;
     left: 0;
+    background-color: var(--bgColor);
 }
 
 main.Chat .sendMessage > div {
@@ -107,6 +108,7 @@ main.Chat .top {
     position: fixed;
     top: 0;
     width: 100%;
+    background-color: var(--bgColor);
 }
 
 main.Chat .top > div > div {
