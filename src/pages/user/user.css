@@ -137,6 +137,10 @@ main.Chat .noMsg {
 
 main.Chat .chats {
     margin: 5rem 0.5rem;
+    background-image: url("../assets/obitechTransLogo.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 main.Chat .chats > div {
