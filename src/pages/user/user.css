@@ -61,8 +61,8 @@ main.User .top > div {
 main.User .friend > div {
     background-color: var(--cbgColor);
     color: var(--cbgText);
-    height: 30px;
-    width: 30px;
+    height: 35px;
+    width: 35px;
     border-radius: 20px;
     text-align: center;
     display: flex;

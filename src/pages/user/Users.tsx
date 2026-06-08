@@ -57,7 +57,7 @@ export default function Users() {
                     onClick={() => HandleSelectedUser(user.id, user.username)}
                     >
                         <div>{user.username.slice(0,1).toUpperCase()}</div>
-                        <h2>{user.username}</h2>
+                        <h3>{user.username}</h3>
                     </div>
                 ))}
                 </div>
