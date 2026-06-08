@@ -64,7 +64,7 @@ export function SearchUserProvider({children}: ChildrenNode) {
             }
         }
         getSearchUser();
-    }, [search])
+    }, [])
 
     return (
         <SearchUserContext.Provider value={{search, searchedUser, setSearch, setSearchedUser, }}>
